@@ -1,0 +1,33 @@
+# 应用名称
+spring:
+  application:
+    name: LibrarySys
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver     # 填入自己mysql版本对应的驱动名地址
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:oracle:thin:@localhost:1521:XE        # 自己的数据库链接
+    username: C##YYL
+    password: 2914236880
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+      exclude: WEB-INF/**
+
+# 应用服务访问端口
+server:
+  port: 8080
+
+## mybatis配置
+#mybatis:
+#  mapper-locations: classpath:/mappers/*Mapper.xml # 这里的文件路径，指向resources下的对应文件夹
+#  type-aliases-package: com.librarysys.entity
+
+#mybatis-plus:
+#  configuration:
+#    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+#    map-underscore-to-camel-case: true
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  global-config:
+#    db-config:
+#      id-type: ASSIGN_ID
