@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>图书管理系统后台</title>
-    <link rel="shortcut icon" href="favicon.ico">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="plugins/element-ui/index.css" />
     <link rel="stylesheet" href="styles/common.css" />
@@ -31,8 +30,7 @@
         <!-- sidebar -->
         <div class="sidebar-container">
           <div class="logo">
-            <!-- <img src="images/logo.png" width="122.5" alt="" /> -->
-            <img src="images/login/login-logo.png" alt="" style="width: 117px; height: 32px" />
+            <!--可插入logo-->
           </div>
 
           <el-scrollbar wrap-class="scrollbar-wrapper">
@@ -107,7 +105,6 @@
     <!-- 引入axios -->
     <script src="plugins/axios/axios.min.js"></script>
     <script src="js/request.js"></script>
-    <script src="./api/login.js"></script>
     <script>
 
       new Vue({
@@ -121,31 +118,31 @@
                   {
                     id: '2',
                     name: '图书管理',
-                    url: 'page/member/list.html',
+                    url: 'page/books/list.html',
                     icon: 'icon-member'
                   },
                   {
                     id: '3',
                     name: 'XX管理',
-                    url: 'page/category/list.html',
+                    url: '',
                     icon: 'icon-category'
                   },
                   {
                     id: '4',
                     name: 'XX管理',
-                    url: 'page/food/list.html',
+                    url: '',
                     icon: 'icon-food'
                   },
                   {
                     id: '5',
                     name: 'XX管理',
-                    url: 'page/combo/list.html',
+                    url: '',
                     icon: 'icon-combo'
                   },
                   {
                     id: '6',
                     name: 'XXXX',
-                    url: 'page/order/list.html',
+                    url: '',
                     icon: 'icon-order'
                   }
               //   ],

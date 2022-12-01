@@ -47,19 +47,19 @@
                 class="tableBox"
         >
             <el-table-column
-                    prop="name"
-                    label="图书名称"
+                    prop="isbn"
+                    label="ISBN号"
             ></el-table-column>
             <el-table-column
-                    prop="username"
+                    prop="title"
                     label="标题"
             ></el-table-column>
             <el-table-column
-                    prop="phone"
+                    prop="pubname"
                     label="出版社"
             ></el-table-column>
             <el-table-column
-                    prop="phone"
+                    prop="author"
                     label="作者"
             ></el-table-column>
 <!--            <el-table-column label="账号状态">-->
@@ -77,7 +77,7 @@
                             type="text"
                             size="small"
                             class="blueBug"
-                            @click="addMemberHandle(scope.row.id)"
+                            @click="addMemberHandle(scope.row.isbn)"
                             :class="{notAdmin:user !== 'admin'}"
                     >
                         编辑
@@ -113,13 +113,15 @@
 <!-- 引入axios -->
 <script src="../../plugins/axios/axios.min.js"></script>
 <script src="../../js/request.js"></script>
-<script src="../../api/member.js"></script>
+<script src="../../api/books.js"></script>
 <script>
     new Vue({
         el: '#member-app',
         data() {
             return {
-                input: '',
+                user: '',
+                input: ''
+                ,
                 counts: 0,
                 page: 1,
                 pageSize: 10,
@@ -142,7 +144,7 @@
                     pageSize: this.pageSize,
                     name: this.input ? this.input : undefined
                 }
-                await getMemberList(params).then(res => {
+                await getBooksList(params).then(res => {
                     if (String(res.code) === '1') {
                         this.tableData = res.data.records || []
                         this.counts = res.data.total
@@ -160,14 +162,14 @@
                 if (st === 'add') {
                     window.parent.menuHandle({
                         id: '2',
-                        url: '/backend/page/member/add.html',
-                        name: '添加员工'
+                        url: 'page/books/add.html',
+                        name: '添加图书'
                     }, true)
                 } else {
                     window.parent.menuHandle({
                         id: '2',
-                        url: '/backend/page/member/add.html?id=' + st,
-                        name: '修改员工'
+                        url: 'page/books/add.html?isbn=' + st,
+                        name: '修改图书'
                     }, true)
                 }
             },

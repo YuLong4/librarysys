@@ -1,5 +1,6 @@
 package com.librarysys;
 
+import com.librarysys.controller.BooksController;
 import com.librarysys.mapper.BooksMapper;
 import com.librarysys.entity.Books;
 import com.librarysys.service.BooksService;
@@ -18,7 +19,13 @@ class LibrarysysApplicationTests {
     @Autowired
     BooksService booksService;
 
+    @Autowired
+    BooksController booksController;
 
+    @Test
+    void test_page(){
+        System.out.println(booksController.page(1,10,null).getData().getRecords());
+    }
 //    @Test
 //    void test(){
 //        System.out.println(booksMapper.selectByISBN("A0001"));
@@ -35,5 +42,7 @@ class LibrarysysApplicationTests {
 //    void test_queryAll(){
 //        System.out.println(booksService.queryAll());
 //    }
+
+
 
 }
